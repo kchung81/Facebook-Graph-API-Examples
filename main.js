@@ -35,6 +35,7 @@ window.fbAsyncInit = function() {
         	// user has not auth'd your app, or is not logged into Facebook
         	document.getElementById('auth-loggedout').style.display = 'block';
         	document.getElementById('auth-loggedin').style.display = 'none';
+			removeFriends();
       	}
  	});
 
@@ -98,4 +99,8 @@ function yaBuddy(json) {
 		html += arr[i].name + '<br />';
 	}
 	friendsDiv.innerHTML = html;
+}
+
+function removeFriends() {
+	document.getElementById('friends').innerHTML = '';
 }
