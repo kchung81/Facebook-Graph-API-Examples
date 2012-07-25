@@ -4,15 +4,13 @@ require_once('sdk/facebook.php');
 
 class FacebookGraph {
 
-	protected $appID = '124232791048688';
-	protected $appSecret = 'd99321004bf0de3bb18adad438b3cb5d';
 	protected $fb;
 
 
-	public function __construct() {
+	public function __construct($appID, $appSecret) {
 		$this->fb = new Facebook(array(
-			'appId'  => $this->appID,
-			'secret' => $this->appSecret,
+			'appId'  => $appID,
+			'secret' => $appSecret,
 			'fileUpload' => FALSE
 		));
 	}

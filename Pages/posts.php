@@ -1,7 +1,12 @@
 <?php 
 
+require_once('app_info.php');
 require_once('classes/FacebookPage.php');
 
+$rn = new FacebookPage(array(
+	'pageID' => '181938933887',
+	'appID' => $appID,
+	'appSecret' => $appSecret
+));
 
-$rg = new FacebookPage('128508180498533');
-echo $rg->getLatestPosts();
+echo $rn->getLatestPosts();

@@ -7,9 +7,9 @@ class FacebookPage extends FacebookGraph {
 
 	protected $pageID;
 
-	public function __construct($pageID) {
-		parent::__construct();
-		$this->pageID = $pageID;
+	public function __construct($data) {
+		parent::__construct($data['appID'], $data['appSecret']);
+		$this->pageID = $data['pageID'];
 	}
 
 	/**
@@ -28,7 +28,6 @@ class FacebookPage extends FacebookGraph {
 
 			$fql = str_replace('{{pageID}}', $this->pageID, $fql);
 			$url = $this->build_fql_url($fql);
-
 			$jsonStr = $this->curl_get($url);
 			return $jsonStr;
 		}
